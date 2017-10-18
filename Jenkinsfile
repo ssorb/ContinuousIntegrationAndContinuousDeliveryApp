@@ -3,7 +3,7 @@ node {
     def mvnHome
     stage('Preparation') { // for display purposes
         git 'https://github.com/ssorb/ContinuousIntegrationAndContinuousDeliveryApp.git'
-        sh 'cd deployment/ && rm -rf tse-control-repo-jenkinswork && git clone -b production https://gitlab.inf.puppet.vm/puppet/control-repo.git && sed -ie \'$d\' control-repo/environment.conf && cd ..'
+        sh 'cd deployment/ && rm -rf tse-control-repo-jenkinswork && git clone -b production https://github.com/ssorb/tse-control-repo-jenkinswork.git && sed -ie \'$d\' control-repo/environment.conf && cd ..'
         sh   '${WORKSPACE}/cleanup-docker.sh'
 //        githubNotify credentialsId: 'puppet-github-up', account: "maju6406", repo: "ContinuousIntegrationAndContinuousDeliveryApp", description: 'Preparing',  status: 'PENDING'        
 //        githubNotify account: 'maju6406', context: 'TSE Jenkins', credentialsId: '70878517-f286-4149-9f6f-ffb4e8648d29', description: 'Preparing', repo: 'ContinuousIntegrationAndContinuousDeliveryApp', status: 'PENDING'
