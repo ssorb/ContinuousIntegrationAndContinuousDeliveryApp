@@ -4,7 +4,7 @@ versionid=`echo $packageName | awk -F "-" '{ print $2}'`
 versionname=`echo $packageName | awk -F "-" '{ print $3}' | awk -F "." '{ print $1}'`
 version=`echo $versionid-$versionname`
 echo "version: $version"
-dockerImageName=maju6406/jenkins-docker-webapp:280155
+dockerImageName=maju6406/jenkins-docker-webapp
 dockerpid=`docker ps -a | grep $dockerImageName | grep "Up" | awk -F " " '{ print $1 }'`
 if [[ $dockerpid != "" ]];then 
    docker kill $dockerpid
